@@ -9,9 +9,9 @@ public class WeatherAPI : MonoBehaviour
     private string apiKey = "your_api_key";
     private string baseUrl = "https://api.weatherbit.io/v2.0/forecast/daily";
 
-    IEnumerator GetWeatherData(string city, string country)
+    IEnumerator GetWeatherData(float longitude, float latitude)
     {
-        string url = $"{baseUrl}?city={city}&country={country}&key={apiKey}";
+        string url = $"{baseUrl}?lon={longitude}&lat={latitude}&key={apiKey}";
 
         using (UnityWebRequest request = UnityWebRequest.Get(url))
         {
@@ -34,6 +34,6 @@ public class WeatherAPI : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(GetWeatherData("New York", "US"));
+        StartCoroutine(GetWeatherData(-73.935242f, 40.730610f));
     }
 }
