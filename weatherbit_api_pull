@@ -1,0 +1,39 @@
+# Script for pulling weather API info for next 10 day hourly forecast on Unity:
+
+using UnityEngine.Networking;
+using UnityEngine;
+using System.Collections;
+
+public class WeatherAPI : MonoBehaviour
+{
+    private string apiKey = "your_api_key";
+    private string baseUrl = "https://api.weatherbit.io/v2.0/forecast/daily";
+
+    IEnumerator GetWeatherData(string city, string country)
+    {
+        string url = $"{baseUrl}?city={city}&country={country}&key={apiKey}";
+
+        using (UnityWebRequest request = UnityWebRequest.Get(url))
+        {
+            yield return request.SendWebRequest();
+
+            if (request.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(request.error);
+            }
+            else
+            {
+                string responseText = request.downloadHandler.text;
+                Debug.Log(responseText);
+
+                // Parse the JSON response and extract the weather data
+                // ...
+            }
+        }
+    }
+
+    void Start()
+    {
+        StartCoroutine(GetWeatherData("New York", "US"));
+    }
+}
