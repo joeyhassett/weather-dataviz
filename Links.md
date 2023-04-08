@@ -8,3 +8,4 @@ API Key for Lon/Lat:
 aOgwwD7ajrzcnfTx3pJKPfpjL0HvSgzA
 
 https://api.weatherbit.io/v2.0/forecast/daily?city=Raleigh,NC&key=API_KEY
+https://api.tomtom.com/search/2/geocode/De Ruijterkade 154, 1011 AC, Amsterdam.json?key={Your_API_Key}
