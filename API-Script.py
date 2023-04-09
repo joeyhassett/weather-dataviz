@@ -1,4 +1,5 @@
 import requests
+import google_streetview.api
 from pprint import pprint
 
 ## getting lat/long from address through api call
@@ -64,3 +65,18 @@ with open("weatherdata.csv", "w") as outfile:
         weather = value[0]
         windy = value[1]
         outfile.write(f"\n{day}, {weather}, {windy}")
+        
+# Define parameters for street view api
+params = [{
+  'size': '600x300', # max 640x640 pixels
+  'location': f'{lon}, {lat}',
+  'heading': f'{i*18}' ,
+  'pitch': '-0.76',
+  'key': 'AIzaSyB8atCJJPW1nddKKHS4XWwuHKRaHbJ-llU'
+} for i in range(20)]
+
+# Create a results object
+result = google_streetview.api.results(params)
+
+# Download images to directory 'downloads'
+result.download_links('streetview_images')
