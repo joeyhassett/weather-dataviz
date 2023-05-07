@@ -1,5 +1,6 @@
 import google_streetview.api
 
+# Open the file to read the coordinates
 location = open('coor', "r");
 lon = location.readline()
 lat = location.readline()
