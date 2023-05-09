@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/vik/Documents/WeatherViz/weather-dataviz/weather-dataviz.csproj": {}
+  },
+  "projects": {
+    "/Users/vik/Documents/WeatherViz/weather-dataviz/weather-dataviz.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/vik/Documents/WeatherViz/weather-dataviz/weather-dataviz.csproj",
+        "projectName": "weather-dataviz",
+        "projectPath": "/Users/vik/Documents/WeatherViz/weather-dataviz/weather-dataviz.csproj",
+        "packagesPath": "/Users/vik/.nuget/packages/",
+        "outputPath": "/Users/vik/Documents/WeatherViz/weather-dataviz/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/vik/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

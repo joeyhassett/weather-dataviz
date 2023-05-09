@@ -9,7 +9,7 @@ namespace MyNamespace
     {
         public static async Task Main()
         {
-            string address = "20 W 34th St., New York, NY 10001";
+            string address = "750 Ferst Dr, Atlanta, GA 30318";
             int day = 15;
             string wb_apikey = "8660093900b24664a3d30561337fc1de";
             string geocode_apikey = "AIzaSyB8atCJJPW1nddKKHS4XWwuHKRaHbJ-llU";
@@ -40,7 +40,6 @@ namespace MyNamespace
                                 writer.WriteLine(lat);
                                 writer.WriteLine(lon);
                             };
-                            
                         }
                         else
                         {

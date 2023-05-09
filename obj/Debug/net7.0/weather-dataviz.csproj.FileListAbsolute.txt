@@ -1,0 +1,5 @@
+/Users/vik/Documents/WeatherViz/weather-dataviz/obj/Debug/net7.0/weather-dataviz.csproj.AssemblyReference.cache
+/Users/vik/Documents/WeatherViz/weather-dataviz/obj/Debug/net7.0/weather-dataviz.GeneratedMSBuildEditorConfig.editorconfig
+/Users/vik/Documents/WeatherViz/weather-dataviz/obj/Debug/net7.0/weather-dataviz.AssemblyInfoInputs.cache
+/Users/vik/Documents/WeatherViz/weather-dataviz/obj/Debug/net7.0/weather-dataviz.AssemblyInfo.cs
+/Users/vik/Documents/WeatherViz/weather-dataviz/obj/Debug/net7.0/weather-dataviz.csproj.CoreCompileInputs.cache
