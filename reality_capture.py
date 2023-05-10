@@ -44,7 +44,10 @@ def create_photoscene():
 
 photoscene_id = create_photoscene()["Photoscene"]["photosceneid"]
 
-def upload_images():
+with open('photoscene_ids.txt', 'a') as f:
+    print(photoscene_id, file=f)
+
+def upload_images(start, end):
 
     headers = {
         'Authorization': f'Bearer {access_token}',
@@ -53,21 +56,30 @@ def upload_images():
     files = {
         'photosceneid': (None, photoscene_id),
         'type': (None, 'image'),
-        'file[0]': 'https://gitlab.com/photogrammetry-test-sets/dice-turntable-strong-lights-heavily-textured-w-watercolors/-/raw/master/01.JPG',
-        'file[1]': 'https://gitlab.com/photogrammetry-test-sets/dice-turntable-strong-lights-heavily-textured-w-watercolors/-/raw/master/02.JPG',
-        'file[2]': 'https://gitlab.com/photogrammetry-test-sets/dice-turntable-strong-lights-heavily-textured-w-watercolors/-/raw/master/06.JPG',
-        'file[3]': 'https://gitlab.com/photogrammetry-test-sets/dice-turntable-strong-lights-heavily-textured-w-watercolors/-/raw/master/09.JPG',
-        'file[4]': 'https://gitlab.com/photogrammetry-test-sets/dice-turntable-strong-lights-heavily-textured-w-watercolors/-/raw/master/11.JPG',
-        'file[5]': 'https://gitlab.com/photogrammetry-test-sets/dice-turntable-strong-lights-heavily-textured-w-watercolors/-/raw/master/13.JPG'
     }
 
-    # for i in range(60):
-    #     files[f'file[{i}]'] = open(f'streetview_images/gsv_{i}.jpg', 'rb')
+    for i in range(start, end):
+         files[f'file[{i}]'] = open(f'images2/DJI_{str(i+1).zfill(4)}.jpg', 'rb')
 
     response = requests.post('https://developer.api.autodesk.com/photo-to-3d/v1/file', headers=headers, files=files)
     c = response.content
     return json.loads(c.decode("utf-8"))
-upload_images()
+print(upload_images(0, 20))
+print(upload_images(20, 40))
+print(upload_images(40, 60))
+print(upload_images(60, 80))
+print(upload_images(80, 100))
+print(upload_images(100, 120))
+print(upload_images(120, 140))
+print(upload_images(140, 160))
+print(upload_images(160, 180))
+print(upload_images(180, 189))
+
+
+
+
+
+
 
 def processing():
     headers = {
@@ -78,30 +90,3 @@ def processing():
     d = response.content
     return json.loads(d.decode("utf-8"))
 processing()
-
-def progress_poll():
-    headers = {
-        'Authorization': f'Bearer {access_token}',
-    }
-
-    response = requests.get(f'https://developer.api.autodesk.com/photo-to-3d/v1/photoscene/{photoscene_id}/progress', headers=headers)
-    e = response.content
-    print(e)
-    return json.loads(e.decode("utf-8"))
-progress_poll()
-
-def download_result():
-
-    headers = {
-        'Authorization': f'Bearer {access_token}',
-    }
-
-    params = (
-        ('format', 'rcm'),
-    )
-
-    response = requests.get(f'https://developer.api.autodesk.com/photo-to-3d/v1/photoscene/{photoscene_id}', headers=headers, params=params)
-    f = response.content
-    print(f)
-    return json.loads(f.decode("utf-8"))
-download_result()
