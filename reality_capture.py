@@ -25,6 +25,8 @@ def get_token():
 token_response = get_token()
 access_token = token_response["access_token"]
 
+
+
 def create_photoscene():
     headers = {
         'Authorization': f'Bearer {access_token}',
@@ -32,10 +34,11 @@ def create_photoscene():
 
     data = {
     'scenename': 'testscene',
-    'format': 'obj,ortho',
-    # 'metadata_name[0]': 'targetcs',
-    # 'metadata_value[0]': 'UTM84-32N',
-    'scope': 'user-profile:read'
+    'format': 'obj',
+    'metadata_name[0]': 'targetcs',
+    'scenetype': 'aerial',
+    'metadata_value[0]': 'UTM84-32N',
+    'gpstype':'precise',
     }
 
     response = requests.post('https://developer.api.autodesk.com/photo-to-3d/v1/photoscene', headers=headers, data=data)
